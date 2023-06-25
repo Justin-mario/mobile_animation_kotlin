@@ -59,16 +59,16 @@ fun BoxAnimation(modifier: Modifier = Modifier) {
 //            delayMillis = 200,
 //            easing = FastOutLinearInEasing
 //        ),
-//        spring(
-//            Spring.StiffnessMedium
-//        )
-    keyframes {
-        durationMillis = 5000
-        boxSize at 0 with LinearEasing
-        boxSize * 1.5f at 1000 with FastOutLinearInEasing
-        boxSize * 2f at 5000
-    }
-    )
+        spring(
+            Spring.StiffnessMedium
+        )
+//    keyframes {
+//        durationMillis = 5000
+//        boxSize at 0 with LinearEasing
+//        boxSize * 1.5f at 1000 with FastOutLinearInEasing
+//        boxSize * 2f at 5000
+//    }
+//    )
 
     Card(modifier = modifier.size(50.dp)) {
         Box (modifier = Modifier
