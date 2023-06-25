@@ -6,8 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.keyframes
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -68,7 +70,7 @@ fun BoxAnimation(modifier: Modifier = Modifier) {
 //        boxSize * 1.5f at 1000 with FastOutLinearInEasing
 //        boxSize * 2f at 5000
 //    }
-//    )
+    )
 
     Card(modifier = modifier.size(50.dp)) {
         Box (modifier = Modifier
