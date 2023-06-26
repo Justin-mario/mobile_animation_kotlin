@@ -3,12 +3,17 @@ package com.example.android.animation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.animateColor
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.keyframes
+import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
@@ -59,9 +64,10 @@ fun BoxAnimation(modifier: Modifier = Modifier) {
         targetValue = boxSize,
         tween(
             durationMillis = 3000,
-            delayMillis = 200,
-            easing = FastOutLinearInEasing
+//            delayMillis = 200,
+//            easing = FastOutLinearInEasing
         ),
+        
 //        spring(
 //            Spring.StiffnessMedium
 //        )
@@ -72,11 +78,20 @@ fun BoxAnimation(modifier: Modifier = Modifier) {
 //        boxSize * 2f at 5000
 //    }
     )
+    val infiniteAnimation = rememberInfiniteTransition()
+    val color by infiniteAnimation.animateColor(
+        initialValue = Color.Red,
+        targetValue = Color.Green,
+        animationSpec = infiniteRepeatable(
+            tween(durationMillis = 2000),
+            repeatMode = RepeatMode.Reverse
+        )
+    )
 
     Card(modifier = modifier.size(50.dp)) {
         Box (modifier = Modifier
             .size(sizeState)
-            .background(Color.Red),
+            .background(color),
             contentAlignment = Alignment.Center){
 
             Button(onClick = { boxSize += 50.dp}) {
