@@ -10,6 +10,7 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.keyframes
 import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -56,14 +57,14 @@ fun BoxAnimation(modifier: Modifier = Modifier) {
 
     val sizeState by animateDpAsState(
         targetValue = boxSize,
-//        tween(
-//            durationMillis = 3000,
-//            delayMillis = 200,
-//            easing = FastOutLinearInEasing
-//        ),
-        spring(
-            Spring.StiffnessMedium
-        )
+        tween(
+            durationMillis = 3000,
+            delayMillis = 200,
+            easing = FastOutLinearInEasing
+        ),
+//        spring(
+//            Spring.StiffnessMedium
+//        )
 //    keyframes {
 //        durationMillis = 5000
 //        boxSize at 0 with LinearEasing
